@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    div {
+      text-align: center;
+    }
+    #answer1 {
+      background-color: green;
+    }
+    #answer2 {
+      background-color: green;
+    }
+    #answer1:hover {
+     cursor: pointer; 
+    }
+    #answer2:hover {
+      cursor: pointer;
+    }
+    #answer3 {
+      background-color: green;
+    }
+    #answer3:hover {
+      cursor: pointer;
+    }
+    #answer4 {
+      background-color: green;
+    }
+    #answer4:hover {
+      cursor: pointer;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="0">
+      <h1 id="question"></h1>
+      <h1 id="answer1"></h1>
+      <h1 id="answer2"></h1>
+      <h1 id="answer3"></h1>
+      <h1 id="answer4"></h1>
+    </div>
+    <p>All Trivia Questions Are By <a href="https://opentdb.com/">Open Trivia DB</a> Under A <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) License</a></p>
+    <script>
+            async function getImg() {
+        base_url =
+          "https://opentdb.com/api.php?amount=1&category=25&difficulty=easy&type=multiple";
+        const response = await fetch(base_url);
+        const data = await response.json(); //convert response into json
+         //log the data
+// diplay data on frontend
+              var i1 = Math.round(Math.random() * 2);
+           
+              document.getElementById('question').innerHTML = data.results[0].question;
+              if (i1 === 0){
+                  document.getElementById('answer1').innerHTML = data.results[0].correct_answer;
+                  $('#answer1').click(function(){
+                    alert('You Are Correct. Next Question Coming Up');
+                    location.reload();
+                  });
+                  document.getElementById('answer2').innerHTML = data.results[0].incorrect_answers[0];
+                  document.getElementById('answer3').innerHTML = data.results[0].incorrect_answers[1];
+                  document.getElementById('answer4').innerHTML = data.results[0].incorrect_answers[2];
+$('#answer2').click(function(){
+alert('That Answer Is Incorrect. Next Question Coming Up');
+location.reload();
+});
+$('#answer3').click(function(){
+alert('That Answer Is Incorrect. Next Question Coming Up');
+location.reload();
+});
+$('#answer4').click(function(){
+alert('That Answer Is Incorrect. Next Question Coming Up');
+location.reload();
+});
+                  }
+                            if (i1 === 1){
+                  document.getElementById('answer1').innerHTML = data.results[0].incorrect_answers[0];
+                  document.getElementById('answer2').innerHTML = data.results[0].correct_answer;
+                  $('#answer2').click(function(){
+                    alert('You Are Correct. Next Question Coming Up');
+                    location.reload();
+                  });
+                  document.getElementById('answer3').innerHTML = data.results[0].incorrect_answers[1];
+                  document.getElementById('answer4').innerHTML = data.results[0].incorrect_answers[2];
+$('#answer1').click(function(){
+alert('That Answer Is Incorrect. Next Question Coming Up');
+location.reload();
+});
+$('#answer3').click(function(){
+alert('That Answer Is Incorrect. Next Question Coming Up');
+location.reload();
+});
+$('#answer4').click(function(){
+alert('That Answer Is Incorrect. Next Question Coming Up');
+location.reload();
+});
+                  }
+                                          if (i1 === 2){
+                  document.getElementById('answer1').innerHTML = data.results[0].incorrect_answers[0];
+                  document.getElementById('answer2').innerHTML = data.results[0].incorrect_answers[1];
+                  document.getElementById('answer3').innerHTML = data.results[0].correct_answer;
+                  $('#answer3').click(function(){
+                    alert('You Are Correct. Next Question Coming Up');
+                    location.reload();
+                  });
+                  document.getElementById('answer4').innerHTML = data.results[0].incorrect_answers[2];
+$('#answer1').click(function(){
+alert('That Answer Is Incorrect. Next Question Coming Up');
+location.reload();
+});
+$('#answer2').click(function(){
+alert('That Answer Is Incorrect. Next Question Coming Up');
+location.reload();
+});
+$('#answer4').click(function(){
+alert('That Answer Is Incorrect. Next Question Coming Up');
+location.reload();
+});
+                  }
+      }
+// function call
+      getImg();
+    </script>
+  </body>
+</html>
