@@ -3,4 +3,19 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7331125028767920"
      crossorigin="anonymous"></script>
      </head>
+     <body>
+          <img id="bg">
+          <script>
+                async function getImg() {
+        base_url =
+          "https://dog.ceo/api/breeds/image/random";
+        const response = await fetch(base_url);
+        const data = await response.json(); //convert response into json
+        console.log(data); //log the data
+// diplay data on frontend
+        document.getElementById('bg').src = data.message;
+                           getImg();
+      var interval = setInterval(getImg, 10000)
+          </script>
+     </body>
 </html>
